@@ -1,7 +1,9 @@
+
+
 const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
-const https = require("https");
+
 
 
 const app = express();
@@ -23,7 +25,7 @@ app.post("/", function(req, res){
     members: [ // https://mailchimp.com/developer/reference/lists/#post_/lists/-list_id-
       {
         email_address: email,
-        status: "suscribed",
+        status: "subscribed",
         merge_fields: {
           FNAME: firstName,
           LNAME: lastName,
@@ -42,7 +44,7 @@ app.post("/", function(req, res){
   };
 
   const httpsRequest = https.request(url, options, function(response){
-    response.on("data", function{
+    response.on("data", function(data){
       console.log(JSON.parse(data));
     })
   });
