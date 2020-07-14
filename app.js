@@ -66,9 +66,9 @@ app.post("/", function(req, res) {
 
 });
 //Post end here.
-
-app.listen(process.env.PORT || 3000, function() { //porcess.env.PORT for Heroku compatibility also keep 3000 for local port.
-  console.log("Server running on port 3000"); //if I am not in Heroku of course!
+const PORT = process.env.PORT || 3000
+app.listen(PORT || 3000, function() { //porcess.env.PORT for Heroku compatibility also keep 3000 for local port.
+  console.log("Server running on port " + PORT); //if I am not in Heroku of course!
 });
 
 // API Key
